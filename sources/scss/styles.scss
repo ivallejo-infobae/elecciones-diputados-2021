@@ -1,0 +1,154 @@
+// ===== ///// FONTS ///// ===== //
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap');
+
+// ===== ///// VARIABLES ///// ===== //
+
+$orange-infobae: #f68e01;
+
+// ===== ///// FUNCTIONS ///// ===== //
+
+@function em($number, $parent:16px) {
+  @return ($number / $parent) * 1em;
+}
+
+@function rem($number, $parent:16px) {
+  @return ($number / $parent) * 1rem;
+}
+
+// ===== ///// MIXINS ///// ===== //
+
+$breakpoints: (
+  xs: rem(360px),
+  sm: rem(375px),
+  md: rem(768px),
+  lg: rem(992px),
+  xl: rem(1200px),
+  xxl: rem(1600px)
+);
+
+@mixin media-query($breakpoint) {
+  @if map-has-key($breakpoints,$breakpoint) {
+    @media screen and (min-width: map-get($breakpoints,$breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+};
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: #2e3035;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  color: $orange-infobae;
+  padding: 15px 0;
+  font-size: rem(25px);
+  @include media-query(md) {
+    font-size: rem(33px);
+  }
+}
+
+// ===== ***** HELPERS ***** ===== //
+
+.img-responsive {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+// ===== ***** PARTIDOS ***** ===== //
+
+.imagen-camara {
+  position: relative;
+  height: 250px;
+  &__asientos {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      display: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+  @include media-query(md) {
+    height: 500px;
+  }
+}
+
+.botones-partidos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  // position: absolute;
+  // bottom: 30px; left: 0;
+  // width: 100%;
+  // z-index: 2;
+  &__wrap-boton {
+    width: calc((100% - 60px) / 4);
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    .shadow-button {
+      display: block;
+      width: 110%;
+      position: absolute;
+      bottom: 10px;
+      left: -4px; right: 0;
+      margin: 0 auto;
+      // z-index: -1;
+    }
+  }
+  &__boton {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    position: relative;
+    z-index: 2;
+    &:hover {
+      transform: scale(.9);
+    }
+  }
+  &__number {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    padding: 3px 0;
+    font-size: rem(18px);
+  }
+  @include media-query(md) {
+    &__wrap-boton {
+      width: calc((100% - 140px) / 8);
+    }
+  }
+  // @include media-query(md) {
+  //   &__wrap-boton {
+  //     width: calc((100% - 140px) / 8);
+  //   }
+  // }
+}
+
