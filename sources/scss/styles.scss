@@ -146,7 +146,7 @@ body {
   }
   @include media-query(md) {
     &__wrap-boton {
-      width: calc((100% - 210px) / 7);
+      width: calc((100% - 140px) / 8);
     }
   }
 }
