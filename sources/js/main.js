@@ -21,6 +21,7 @@ botonesPartidos.on('click', '.boton-partido', function(){
       }
     })
   }
+  return false;
 })
 
 btnAll.on('click', function(){
@@ -29,4 +30,5 @@ btnAll.on('click', function(){
       $(this).fadeIn().removeClass('on');
     }
   })
+  return false;
 })

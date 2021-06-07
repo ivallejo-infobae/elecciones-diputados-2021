@@ -21,7 +21,7 @@ $orange-infobae: #f68e01;
 $breakpoints: (
   xs: rem(360px),
   sm: rem(375px),
-  md: rem(768px),
+  md: rem(758px),
   lg: rem(992px),
   xl: rem(1200px),
   xxl: rem(1600px)
@@ -117,13 +117,13 @@ body {
     width: calc((100% - 60px) / 4);
     position: relative;
     margin-bottom: 30px;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
     .shadow-button {
       display: block;
       width: 110%;
       position: absolute;
-      bottom: 10px;
-      left: -4px; right: 0;
+      bottom: 12px;
+      left: -2px; right: 0;
       margin: 0 auto;
       // z-index: -1;
     }
@@ -146,7 +146,7 @@ body {
   }
   @include media-query(md) {
     &__wrap-boton {
-      width: calc((100% - 140px) / 8);
+      width: calc((100% - 210px) / 7);
     }
   }
 }
